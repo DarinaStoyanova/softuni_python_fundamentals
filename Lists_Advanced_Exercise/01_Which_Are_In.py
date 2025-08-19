@@ -1,4 +1,10 @@
 first_sequence = input().split(", ")
 second_sequence = input().split(", ")
+substrings = []
 
-matches = [word for word in first_sequence if word in second_sequence]
+for first_string in first_sequence:
+    for second_string in second_sequence:
+        if first_string in second_string:
+            substrings.append(first_string)
+            break
+print(substrings)
