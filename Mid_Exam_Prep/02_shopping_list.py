@@ -19,12 +19,14 @@ while command != "Go Shopping!":
     elif new_command == "Correct":
         if item_and_new_command[1] in initial_list_groceries:
             new_item = item_and_new_command[2]
-            initial_list_groceries = [new_item if item_and_new_command[1] in initial_list_groceries else item_and_new_command]
-            initial_list_groceries.remove(item_and_new_command[1])
+            old_item = item_and_new_command[1]
+            if old_item in initial_list_groceries:
+                index = initial_list_groceries.index(old_item)
+                initial_list_groceries[index] = new_item
         else:
             command = input()
             continue
-    elif command == "Rearrange":
+    elif new_command == "Rearrange":
         if item in initial_list_groceries:
             initial_list_groceries.remove(item)
             initial_list_groceries.append(item)
