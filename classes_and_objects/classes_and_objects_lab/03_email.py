@@ -11,4 +11,25 @@ class Email:
     def get_info(self):
         return f"{self.sender} says to {self.receiver}: {self.content}. Sent: {self.is_sent}"
 
+emails = []
+
+command = input().split(" ")
+while command[0] != "Stop":
+    sender = command[0]
+    receiver = command[1]
+    content = command[2]
+    email = Email(sender, receiver,content)
+    emails.append(email)
+
+    command = input().split(" ")
+
+indices = list(map(int, input().split(', ')))
+
+for index in indices:
+    emails[index].send()
+
+for email in emails:
+    print(email.get_info())
+
+
 
