@@ -1,12 +1,14 @@
-entry_string = input()
-final_string = ""
-total = 0
+string = input()
+filtered_string = ""
+explosion_strength = 0
 
-for index in range (len(entry_string)):
-    for entry_string[index] in entry_string:
-        if entry_string[index] == ">":
-            total += int(entry_string[index + 1])
+for index in range(0, len(string)):
+    if string[index] == ">":
+        filtered_string += string[index]
+        explosion_strength += int(string[index+1])
+    elif string[index] != ">" and explosion_strength <= 0:
+        filtered_string += string[index]
+    elif string[index] != ">" and explosion_strength > 0:
+        explosion_strength -= 1
 
-for char in entry_string:
-    if char == ">":
-        entry_string = entry_string.pop()
+print(filtered_string)
