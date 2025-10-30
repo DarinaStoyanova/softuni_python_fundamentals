@@ -11,7 +11,7 @@ for index in range(len(text)):
                 break
             repetitions += text[next_characters]
         final_text += sub_string * int(repetitions)
-        sub_string = ""
+        sub_string = "" 
         repetitions = ""
 
 print(f"Unique symbols used: {len(set(final_text))}")
